@@ -1,0 +1,54 @@
+﻿<Window x:Class="CampaignTracker.Views.RootView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CampaignTracker.Views"
+        xmlns:str="clr-namespace:CampaignTracker.Resources.Strings"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="{x:Static str:RootView.Title}" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="{x:Static str:RootView.Menu_File}">
+                <MenuItem Header="{x:Static str:RootView.MenuItem_New}"/>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Open}"/>
+                <Separator />
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Save}"/>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_SaveAs}"/>
+                <Separator />
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Exit}"/>
+            </MenuItem>
+        </Menu>
+        
+        <ToolBarPanel Grid.Row="1">
+            <ToolBarPanel>
+                <ToolBar>
+                    <Button>
+                        <icon:Material Kind="FilePlus"/>
+                    </Button>
+                    <Button>
+                        <icon:MaterialDesign Kind="FolderOpen"/>
+                    </Button>
+                    <Separator />
+                    <Button>
+                        <icon:Material Kind="ContentSave"/>
+                    </Button>
+                    <Button>
+                        <icon:Material Kind="ContentSaveMove"/>
+                    </Button>
+                </ToolBar>
+            </ToolBarPanel>
+        </ToolBarPanel>
+
+        <Grid Grid.Row="2"></Grid>
+    </Grid>
+</Window>
