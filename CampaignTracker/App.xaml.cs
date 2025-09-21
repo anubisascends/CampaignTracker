@@ -1,8 +1,12 @@
-﻿using CampaignTracker.ViewModels;
+﻿using CampaignTracker.Models;
+using CampaignTracker.Repositories;
+using CampaignTracker.Repositories.Interfaces;
+using CampaignTracker.ViewModels;
 using CampaignTracker.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace CampaignTracker;
 
@@ -26,7 +30,12 @@ internal static class AppExtensions
     {
         builder.ConfigureServices(services =>
         {
-            
+            services.AddAutoMapper(config => 
+            {
+                config.AddProfile<CampaignTrackerAutoMapperProfile>();
+            });
+
+            services.AddTransient<ICampaignRepository, CampaignFileRepository>();
         });
 
         return builder;

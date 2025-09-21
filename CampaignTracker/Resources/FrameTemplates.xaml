@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:CampaignTracker.Models"
+                    xmlns:note="clr-namespace:CampaignTracker.Features.Note">
+    <DataTemplate DataType="{x:Type m:NoteCollection}">
+        <note:NoteView ItemsSource="{Binding}"/>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,6 +1,7 @@
 ﻿using CampaignTracker.ViewModels;
 using CampaignTracker.Views.Interfaces;
 using Microsoft.Extensions.Hosting;
+using System.Windows.Navigation;
 
 namespace CampaignTracker.Views;
 
@@ -17,6 +18,7 @@ public partial class RootView : IView<RootViewModel>, IHostedService
     }
 
     public RootViewModel ViewModel { get; }
+    public NavigationService NavigationService { get; }
 
     public Task StartAsync(CancellationToken cancellationToken)
     {

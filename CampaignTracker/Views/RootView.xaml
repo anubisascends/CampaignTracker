@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CampaignTracker.Views"
         xmlns:str="clr-namespace:CampaignTracker.Resources.Strings"
         xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        mc:Ignorable="d"
+        mc:Ignorable="d" d:DataContext="{d:DesignInstance local:RootView}"
         Title="{x:Static str:RootView.Title}" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -19,36 +19,90 @@
 
         <Menu>
             <MenuItem Header="{x:Static str:RootView.Menu_File}">
-                <MenuItem Header="{x:Static str:RootView.MenuItem_New}"/>
-                <MenuItem Header="{x:Static str:RootView.MenuItem_Open}"/>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_New}"
+                          Command="{Binding ViewModel.NewCommand}">
+                    <MenuItem.Icon>
+                        <icon:Material Kind="FilePlus"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Open}"
+                          Command="{Binding ViewModel.OpenCommand}">
+                    <MenuItem.Icon>
+                        <icon:Material Kind="FolderOpen"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
-                <MenuItem Header="{x:Static str:RootView.MenuItem_Save}"/>
-                <MenuItem Header="{x:Static str:RootView.MenuItem_SaveAs}"/>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Save}"
+                          Command="{Binding ViewModel.SaveCommand}">
+                    <MenuItem.Icon>
+                        <icon:Material Kind="ContentSave"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_SaveAs}"
+                          Command="{Binding ViewModel.SaveAsCommand}">
+                    <MenuItem.Icon>
+                        <icon:Material Kind="ContentSaveMove"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
-                <MenuItem Header="{x:Static str:RootView.MenuItem_Exit}"/>
+                <MenuItem Header="{x:Static str:RootView.MenuItem_Exit}"
+                          Command="{Binding ViewModel.ExitCommand}"/>
             </MenuItem>
         </Menu>
         
         <ToolBarPanel Grid.Row="1">
             <ToolBarPanel>
-                <ToolBar>
-                    <Button>
-                        <icon:Material Kind="FilePlus"/>
-                    </Button>
-                    <Button>
-                        <icon:MaterialDesign Kind="FolderOpen"/>
-                    </Button>
-                    <Separator />
-                    <Button>
-                        <icon:Material Kind="ContentSave"/>
-                    </Button>
-                    <Button>
-                        <icon:Material Kind="ContentSaveMove"/>
-                    </Button>
-                </ToolBar>
+                <ToolBarTray>
+                    <ToolBar>
+                        <Button Command="{Binding ViewModel.NewCommand}">
+                            <icon:Material Kind="FilePlus"/>
+                        </Button>
+                        <Button Command="{Binding ViewModel.OpenCommand}">
+                            <icon:MaterialDesign Kind="FolderOpen"/>
+                        </Button>
+                        <Separator />
+                        <Button Command="{Binding ViewModel.SaveCommand}">
+                            <icon:Material Kind="ContentSave"/>
+                        </Button>
+                        <Button Command="{Binding ViewModel.SaveAsCommand}">
+                            <icon:Material Kind="ContentSaveMove"/>
+                        </Button>
+                    </ToolBar>
+                    <ToolBar>
+                        <Label Content="{x:Static str:RootView.Label_Campaign}"/>
+                        <TextBox Width="150" Text="{Binding ViewModel.ActiveCampaign.Name}"/>
+                    </ToolBar>
+                </ToolBarTray>
             </ToolBarPanel>
         </ToolBarPanel>
 
-        <Grid Grid.Row="2"></Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="0,0,5,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="0,1" />
+                        <Setter Property="Height" Value="35" />
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="{x:Static str:RootView.Button_Players}"
+                        Command="{Binding ViewModel.PlayersCommand}"/>
+                <Button Content="{x:Static str:RootView.Button_NonPlayerCharacters}"
+                        Command="{Binding ViewModel.NonPlayersCommand}"/>
+                <Button Content="{x:Static str:RootView.Button_Notes}"
+                        Command="{Binding ViewModel.NotesCommand}"/>
+                <Button Content="{x:Static str:RootView.Button_Images}"
+                        Command="{Binding ViewModel.ImagesCommand}"/>
+            </StackPanel>
+
+            <GridSplitter Width="5"/>
+
+            <Frame Grid.Column="1"
+                   Content="{Binding ViewModel.FrameContent}"/>
+        </Grid>
     </Grid>
 </Window>

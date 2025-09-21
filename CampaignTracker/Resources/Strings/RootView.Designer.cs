@@ -61,6 +61,51 @@ namespace CampaignTracker.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        public static string Button_Images {
+            get {
+                return ResourceManager.GetString("Button_Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-Player Characters.
+        /// </summary>
+        public static string Button_NonPlayerCharacters {
+            get {
+                return ResourceManager.GetString("Button_NonPlayerCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string Button_Notes {
+            get {
+                return ResourceManager.GetString("Button_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Button_Players {
+            get {
+                return ResourceManager.GetString("Button_Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Campaign:.
+        /// </summary>
+        public static string Label_Campaign {
+            get {
+                return ResourceManager.GetString("Label_Campaign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to _File.
         /// </summary>
         public static string Menu_File {

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="6.1.0" />
     <PackageReference Include="MahApps.Metro.IconPacks.MaterialDesign" Version="6.1.0" />
@@ -18,6 +19,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\Strings\Campaign.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Campaign.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Strings\Note.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Note.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Strings\RootView.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -26,6 +37,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings\Campaign.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Campaign.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Strings\Note.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Note.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Strings\RootView.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RootView.Designer.cs</LastGenOutput>
